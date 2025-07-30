@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 10px;
+}
+label {
+  display: block;
+  margin-top: 15px;
+}
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  font-size: 1em;
+}

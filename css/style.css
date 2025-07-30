@@ -1,0 +1,179 @@
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.inicio-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.titulo {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+input[type="text"] {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+.btnReiniciar {
+  font-size: 2rem;
+  padding: 10px 20px;
+  background-color: lightblue;
+  border: 2px solid blue;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnReiniciar {
+  font-size: 2rem;
+  padding: 10px 20px;
+  background-color: lightblue;
+  border: 2px solid blue;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-jugar {
+  padding: 0.8rem;
+  background-color: #0066cc;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-jugar:hover {
+  background-color: #004d99;
+}
+
+.mensaje-error {
+  color: red;
+  font-size: 0.9rem;
+}
+
+footer {
+  margin-top: 2rem;
+}
+
+.link-github {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.link-github:hover {
+  text-decoration: underline;
+}
+:root {
+  --color-fondo: #ffffff;
+  --color-texto: #000000;
+  --color-boton: #dddddd;
+  --color-boton-texto: #000000;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modo-toggle {
+  background-color: var(--color-boton);
+  color: var(--color-boton-texto);
+  border: 2px solid #888;
+  border-radius: 20px;
+  padding: 0.4em 1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos para modo oscuro */
+body.modo-oscuro {
+  --color-fondo: #1e1e1e;
+  --color-texto: #f0f0f0;
+  --color-boton: #333333;
+  --color-boton-texto: #ffffff;
+}
+.contacto-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+
+  /* Puedes usar variables de color si quieres */
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contacto-titulo {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.contacto-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.contacto-input,
+.contacto-textarea {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: white; /* para asegurarse que no herede bg */
+  color: black; /* igual, para que el texto se vea */
+}
+
+.contacto-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.contacto-error {
+  color: red;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.contacto-btn {
+  padding: 0.8rem;
+  background-color: #0066cc;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contacto-btn:hover {
+  background-color: #004d99;
+}

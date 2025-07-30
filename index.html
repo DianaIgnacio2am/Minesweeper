@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minesweeper - Inicio</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="inicio-container">
+      <h1 class="titulo">🧠 Buscaminas</h1>
+
+      <form id="formularioJugador" class="formulario">
+        <label for="nombreJugador">Nombre del jugador:</label>
+        <input
+          type="text"
+          id="nombreJugador"
+          name="nombreJugador"
+          maxlength="20"
+          placeholder="Ej: Ignacio"
+        />
+        <p id="errorNombre" class="mensaje-error"></p>
+
+        <button type="submit" class="btn-jugar">Comenzar partida</button>
+      </form>
+
+      <footer>
+        <a
+          href="https://github.com/DianaIgnacio2am/Minesweeper"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-github"
+        >
+          Ver código en GitHub 🔗
+        </a>
+      </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

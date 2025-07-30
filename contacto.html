@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contacto</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="contacto-container">
+    <h2 class="contacto-titulo">Formulario de Contacto</h2>
+    <form id="contactForm" class="contacto-formulario" novalidate>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre" class="contacto-input" />
+      <div id="errorNombre" class="contacto-error"></div>
+
+      <input type="text" id="email" name="email" placeholder="Correo electrónico" class="contacto-input" />
+      <div id="errorEmail" class="contacto-error"></div>
+
+      <textarea id="mensaje" name="mensaje" placeholder="Mensaje" class="contacto-textarea"></textarea>
+      <div id="errorMensaje" class="contacto-error"></div>
+
+      <button type="submit" class="contacto-btn">Enviar</button>
+    </form>
+  </div>
+
+  <script src="js/contacto.js"></script>
+
+</body>
+</html>
