@@ -16,11 +16,15 @@ function crearTablero() {
     tablero[fila] = [];
     for (var col = 0; col < columnas; col++) {
       var celda = document.createElement('button');
-      celda.classList.add('celda');
-      celda.dataset.fila = fila;
-      celda.dataset.col = col;
-      celda.disabled = false;
 
+      // En lugar de classList.add
+      celda.className = 'celda';
+
+      // En lugar de dataset
+      celda.setAttribute('data-fila', fila);
+      celda.setAttribute('data-col', col);
+
+      celda.disabled = false;
       tableroElem.appendChild(celda);
 
       tablero[fila][col] = {
@@ -72,8 +76,17 @@ function contarMinasAlrededor() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  crearTablero();
-  colocarMinas();
-  contarMinasAlrededor();
-});
+if (document.addEventListener) {
+  document.addEventListener('DOMContentLoaded', function () {
+    crearTablero();
+    colocarMinas();
+    contarMinasAlrededor();
+  });
+} else {
+  // Para compatibilidad con IE8
+  window.attachEvent('onload', function () {
+    crearTablero();
+    colocarMinas();
+    contarMinasAlrededor();
+  });
+}

@@ -1,16 +1,26 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contactForm');
-  const errorNombre = document.getElementById('errorNombre');
-  const errorEmail = document.getElementById('errorEmail');
-  const errorMensaje = document.getElementById('errorMensaje');
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('contactForm');
+  var errorNombre = document.getElementById('errorNombre');
+  var errorEmail = document.getElementById('errorEmail');
+  var errorMensaje = document.getElementById('errorMensaje');
 
   function validarNombre(nombre) {
-    const regex = /^[a-zA-Z0-9\s]+$/;
+    var regex = /^[a-zA-Z0-9\s]+$/;
     return regex.test(nombre.trim()) && nombre.trim().length > 0;
   }
+  
+window.addEventListener("DOMContentLoaded", function () {
+  var modoGuardado = localStorage.getItem("modo");
+
+  if (modoGuardado === "oscuro") {
+    document.body.classList.add("modo-oscuro");
+  } else {
+    document.body.classList.remove("modo-oscuro");
+  }
+});
 
   function validarEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email.trim());
   }
 
@@ -24,15 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
     errorMensaje.textContent = '';
   }
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', function(event) {
     event.preventDefault();
     limpiarErrores();
 
-    const nombreVal = form.nombre.value;
-    const emailVal = form.email.value;
-    const mensajeVal = form.mensaje.value;
+    var nombreVal = form.nombre.value;
+    var emailVal = form.email.value;
+    var mensajeVal = form.mensaje.value;
 
-    let formValido = true;
+    var formValido = true;
 
     if (!validarNombre(nombreVal)) {
       errorNombre.textContent = 'El nombre debe ser alfanumérico y no puede estar vacío.';
@@ -53,11 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const asunto = encodeURIComponent('Contacto desde formulario web');
-    const cuerpo = encodeURIComponent(
-      `Nombre: ${nombreVal}\nCorreo: ${emailVal}\n\nMensaje:\n${mensajeVal}`
+    var asunto = encodeURIComponent('Contacto desde formulario web');
+    var cuerpo = encodeURIComponent(
+      'Nombre: ' + nombreVal + '\nCorreo: ' + emailVal + '\n\nMensaje:\n' + mensajeVal
     );
 
-    window.location.href = `mailto:?subject=${asunto}&body=${cuerpo}`;
+    window.location.href = 'mailto:?subject=' + asunto + '&body=' + cuerpo;
   });
 });

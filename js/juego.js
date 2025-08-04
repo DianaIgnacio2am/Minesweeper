@@ -1,22 +1,22 @@
 'use strict';
-const sonidoExplosion = new Audio("sounds/explosion.mp3");
+
+var sonidoExplosion = new Audio("sounds/explosion.mp3");
+
 window.addEventListener("DOMContentLoaded", function () {
   var saludoJugador = document.getElementById("saludoJugador");
   var nombre = localStorage.getItem("jugador");
 
   if (nombre) {
     saludoJugador.textContent = "Jugador: " + nombre;
-    // Si querés borrar el nombre después de usarlo:
-    // localStorage.removeItem("jugador");
   } else {
     saludoJugador.textContent = "Jugador: Invitado";
   }
 });
+
 var juegoIniciado = false;
 var tiempo = 0;
 var temporizadorId = null;
 var minasRestantes = totalMinas;
-
 
 function iniciarTemporizador() {
   if (juegoIniciado) return;
@@ -63,7 +63,6 @@ function revelarCelda(fila, col) {
     celdaObj.elemento.textContent = minasCerca;
   } else {
     celdaObj.elemento.textContent = '';
-    // Revelar recursivamente celdas vecinas
     revelarVecinas(fila, col);
   }
 
@@ -124,7 +123,7 @@ function comprobarVictoria() {
 function terminarJuego(gano) {
   detenerTemporizador();
   mostrarModal(gano ? '¡Ganaste! 🎉' : '¡Perdiste! 💥');
-  // Deshabilitar todas las celdas
+
   for (var fila = 0; fila < filas; fila++) {
     for (var col = 0; col < columnas; col++) {
       tablero[fila][col].elemento.disabled = true;
@@ -141,16 +140,14 @@ function mostrarModal(mensaje) {
   var btnCerrar = document.getElementById('btnCerrarModal');
 
   mensajeElem.textContent = mensaje;
-  btnCerrar.textContent = 'Reiniciar';  // Cambiamos texto aquí
-
-  modal.className = 'modal'; // quitar clase oculto
+  btnCerrar.textContent = 'Reiniciar';
+  modal.className = 'modal';
 }
-
 
 function ocultarModal() {
   var modal = document.getElementById('modalResultado');
-  modal.className = 'modal oculto';  // oculta modal
-  reiniciarJuego();                   // reinicia juego
+  modal.className = 'modal oculto';
+  reiniciarJuego();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -159,8 +156,8 @@ document.addEventListener('DOMContentLoaded', function() {
     ocultarModal();
   });
 });
+
 function reiniciarJuego() {
-  // 🛑 Detener el temporizador anterior si existe
   clearInterval(temporizadorId);
   juegoIniciado = false;
   tiempo = 0;
@@ -204,16 +201,12 @@ function agregarEventosCeldas() {
     }
   }
 }
-const btnModo = document.getElementById("toggleModo");
 
-// Cargar estado desde localStorage
-const modoGuardado = localStorage.getItem("modo");
-if (modoGuardado === "oscuro") {
-  activarModoOscuro();
-}
+// Modo oscuro
+var btnModo = document.getElementById("toggleModo");
 
-btnModo.addEventListener("click", () => {
-  const enModoOscuro = document.body.classList.toggle("modo-oscuro");
+btnModo.addEventListener("click", function() {
+  var enModoOscuro = document.body.classList.toggle("modo-oscuro");
 
   if (enModoOscuro) {
     activarModoOscuro();
@@ -221,7 +214,6 @@ btnModo.addEventListener("click", () => {
     desactivarModoOscuro();
   }
 
-  // Guardar en localStorage
   localStorage.setItem("modo", enModoOscuro ? "oscuro" : "claro");
 });
 
@@ -238,3 +230,14 @@ function desactivarModoOscuro() {
   btnModo.textContent = "🌙 Modo oscuro";
   btnModo.setAttribute("aria-label", "Activar modo oscuro");
 }
+
+// Al cargar la página, aplicar modo guardado
+window.addEventListener("DOMContentLoaded", function() {
+  var modoGuardado = localStorage.getItem("modo");
+
+  if (modoGuardado === "oscuro") {
+    activarModoOscuro();
+  } else {
+    desactivarModoOscuro();
+  }
+});

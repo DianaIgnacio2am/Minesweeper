@@ -6,22 +6,25 @@ var inputNombre = document.getElementById("nombreJugador");
 var errorNombre = document.getElementById("errorNombre");
 
 // Validación del nombre (mínimo 3 letras)
-formulario.addEventListener("submit", validarNombre);
+formulario.onsubmit = function(evento) {
+  if (evento && evento.preventDefault) {
+    evento.preventDefault();
+  } else {
+    window.event.returnValue = false; // compatibilidad IE8
+  }
 
-function validarNombre(evento) {
-  evento.preventDefault();
-
-  var nombre = inputNombre.value.trim();
+  var nombre = inputNombre.value;
+  nombre = nombre.replace(/^\s+|\s+$/g, ""); // reemplazo de trim()
 
   if (nombre.length < 3) {
-    errorNombre.textContent = "El nombre debe tener al menos 3 letras.";
-    return;
+    errorNombre.innerHTML = "El nombre debe tener al menos 3 letras.";
+    return false;
   }
 
   // Limpia error y guarda el nombre en LocalStorage
-  errorNombre.textContent = "";
+  errorNombre.innerHTML = "";
   localStorage.setItem("jugador", nombre);
 
-  // Redirige a la pantalla del juego (a crear)
+  // Redirige a la pantalla del juego
   window.location.href = "juego.html";
-}
+};

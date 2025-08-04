@@ -6,26 +6,27 @@
 }
 
 .tablero {
-  display: grid;
-  grid-template-columns: repeat(8, 40px);
-  grid-template-rows: repeat(8, 40px);
-  gap: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(8 * 40px + 7 * 2px + 10px); /* ancho total: 8 celdas de 40px + 7 gaps de 2px + padding 5px x 2 */
+  gap: 2px; /* funciona en navegadores modernos */
   justify-content: center;
   margin: 20px auto;
-  width: max-content;
   border: 1px solid #555;
   padding: 5px;
   background: #ddd;
 }
 
 .celda {
-  width: 40px;
+  flex: 0 0 40px; /* ancho fijo */
   height: 40px;
   font-size: 16px;
   cursor: pointer;
   background-color: #bbb;
   border: 1px solid #999;
+  box-sizing: border-box;
 }
+
 
 #btnReiniciar {
   font-size: 2rem;
