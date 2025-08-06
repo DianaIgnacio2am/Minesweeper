@@ -18,3 +18,5 @@ Temporizador que inicia al primer clic y muestra el tiempo transcurrido.
 Indicador de minas restantes.
 
 Estado de victoria o derrota con mensajes y opción para reiniciar.
+
+https://dianaignacio2am.github.io/Minesweeper/
